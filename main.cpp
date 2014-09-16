@@ -9,8 +9,12 @@ Node * findNode(Node *, int);
 // Build Binary Tree
 Node * buildBinaryTree();
 
+// Preorder Traversal of Binary Tree
+void preorderTraverse(Node *);
+
 int main() {
 	Node * bt_head = buildBinaryTree();
+	preorderTraverse(bt_head);
 }
 
 Node * buildBinaryTree() {
@@ -24,6 +28,18 @@ Node * buildBinaryTree() {
 	Node * a = new Node(b, c, 100);
 
 	return a;
+}
+
+void preorderTraverse(Node * head) {
+
+	cout << head->getValue() << endl;
+
+	if(head->getLeft())
+		preorderTraverse(head->getLeft());
+
+	if(head->getRight())
+		preorderTraverse(head->getRight());
+	
 }
 
 Node * findNode(Node * root, int value) {
