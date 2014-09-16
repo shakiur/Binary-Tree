@@ -1,8 +1,7 @@
 class Node {
 
 	public:
-		// Constructors to intialize data
-		Node(int);
+		// Constructor to intialize data
 		Node(Node *, Node *, int);
 
 		// Getters to retrieve data

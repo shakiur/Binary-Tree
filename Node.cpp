@@ -1,8 +1,5 @@
 #include "headers/Node.h"
 
-Node::Node(int value) : 
-	value(value) {}
-
 Node::Node(Node * left, Node * right, int value) : 
 	left(left), right(right), value(value) {}
 
