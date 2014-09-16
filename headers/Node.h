@@ -9,6 +9,7 @@ class Node {
 		Node * getLeft();
 		Node * getRight();
 		int getValue();
+
 	private:
 		Node * left;
 		Node * right;
