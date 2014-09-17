@@ -9,6 +9,9 @@ Node * findNode(Node *, int);
 // Build Binary Tree
 Node * buildBinaryTree();
 
+// Build Binary Tree to be used to find common ancestor
+Node * buildBinaryTreeAncestor();
+
 // Preorder Traversal of Binary Tree
 void preorderTraverse(Node *);
 
@@ -21,8 +24,12 @@ void postorderTraverse(Node *);
 // Preorder Traversal of Binary Tree w/o recursion
 void preorderTraverseWithStack(Node *);
 
+Node * findCommonAncestor(int, int, root);
+
 int main() {
+
 	Node * bt_head = buildBinaryTree();
+
 	cout << "============= Preorder Traverse ============="
 		 << endl;
 	preorderTraverse(bt_head);
@@ -30,6 +37,10 @@ int main() {
 	cout << "============= Stack PO Traverse ============="
 		 << endl;
 	preorderTraverseWithStack(bt_head);
+	
+	Node * bt_head2 = buildBinaryTreeAncestor();
+
+
 }
 
 Node * buildBinaryTree() {
@@ -45,6 +56,20 @@ Node * buildBinaryTree() {
 	root->push(110);
 
 	return root;
+}
+
+Node * buildBinaryTreeAncestor() {
+	Node * root = new Node(NULL, NULL, 20);
+
+	root->push(8);
+	root->push(22);
+	root->push(4);
+	root->push(12);
+	root->push(10);
+	root->push(14);
+
+	return root;
+
 }
 
 void preorderTraverse(Node * head) {
@@ -104,4 +129,12 @@ Node * findNode(Node * root, int value) {
 	}
 
 	return NULL;
+}
+
+Node * findCommonAncestor(int x, int y, Node * root) {
+	Node * temp_x = root;
+	Node * temp_y = root;
+
+	int curVal = root->getValue();
+
 }
