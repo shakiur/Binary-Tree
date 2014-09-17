@@ -18,10 +18,18 @@ void inorderTraverse(Node *);
 // Postorder Traversal of Binary Tree
 void postorderTraverse(Node *);
 
+// Preorder Traversal of Binary Tree w/o recursion
+void preorderTraverseWithStack(Node *);
+
 int main() {
 	Node * bt_head = buildBinaryTree();
-	inorderTraverse(bt_head);
-	NodeStack n;
+	cout << "============= Preorder Traverse ============="
+		 << endl;
+	preorderTraverse(bt_head);
+
+	cout << "============= Stack PO Traverse ============="
+		 << endl;
+	preorderTraverseWithStack(bt_head);
 }
 
 Node * buildBinaryTree() {
@@ -47,6 +55,24 @@ void preorderTraverse(Node * head) {
 	if(head->getRight())
 		preorderTraverse(head->getRight());
 	
+}
+
+void preorderTraverseWithStack(Node * root) {
+	NodeStack * bt_stack = new NodeStack;
+	bt_stack->push(root);
+
+	while(bt_stack->checkEmpty()) {
+		
+		Node * temp = bt_stack->pop();
+		cout << temp->getValue() << endl;
+
+		if(temp->getRight())
+			bt_stack->push(temp->getRight());
+		
+		if(temp->getLeft())
+			bt_stack->push(temp->getLeft());
+	}
+
 }
 
 void inorderTraverse(Node * head) {

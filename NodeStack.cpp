@@ -14,6 +14,13 @@ Node * NodeStack::pop() {
 void NodeStack::push(Node * n) {
 	if(head)
 		n->setNext(head);
-	
+
 	head = n;
+}
+
+bool NodeStack::checkEmpty() {
+	if(head)
+		return true;
+	else
+		return false;
 }

@@ -6,4 +6,5 @@ class NodeStack {
 	public:
 		Node * pop();
 		void push(Node *);
+		bool checkEmpty();
 };
