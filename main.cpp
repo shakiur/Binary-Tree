@@ -1,5 +1,5 @@
 #include <iostream>
-#include "headers/Node.h"
+#include "headers/NodeStack.h"
 
 using namespace std;
 
@@ -12,9 +12,16 @@ Node * buildBinaryTree();
 // Preorder Traversal of Binary Tree
 void preorderTraverse(Node *);
 
+// Inorder Traversal of Binary Tree
+void inorderTraverse(Node *);
+
+// Postorder Traversal of Binary Tree
+void postorderTraverse(Node *);
+
 int main() {
 	Node * bt_head = buildBinaryTree();
-	preorderTraverse(bt_head);
+	inorderTraverse(bt_head);
+	NodeStack n;
 }
 
 Node * buildBinaryTree() {
@@ -36,6 +43,18 @@ void preorderTraverse(Node * head) {
 
 	if(head->getLeft())
 		preorderTraverse(head->getLeft());
+
+	if(head->getRight())
+		preorderTraverse(head->getRight());
+	
+}
+
+void inorderTraverse(Node * head) {
+
+	if(head->getLeft())
+		preorderTraverse(head->getLeft());
+
+	cout << head->getValue() << endl;
 
 	if(head->getRight())
 		preorderTraverse(head->getRight());

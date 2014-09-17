@@ -7,4 +7,8 @@ Node * Node::getLeft() { return left; }
 
 Node * Node::getRight() {return right; }
 
+Node * Node::getNext() {return next; }
+
 int Node::getValue() {return value;}
+
+void Node::setNext(Node * n) { next = n; }
