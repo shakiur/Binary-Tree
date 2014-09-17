@@ -33,16 +33,18 @@ int main() {
 }
 
 Node * buildBinaryTree() {
-	Node * h = new Node(NULL, NULL, 110);
-	Node * f = new Node(h, NULL, 125);
-	Node * g = new Node(NULL, NULL, 175);
-	Node * c = new Node(f, g, 150);
-	Node * d = new Node(NULL, NULL, 25);
-	Node * e = new Node(NULL, NULL, 75);
-	Node * b = new Node(d, e, 50);
-	Node * a = new Node(b, c, 100);
 
-	return a;
+	Node * root = new Node(NULL, NULL, 100);
+
+	root->push(50);
+	root->push(150);
+	root->push(25);
+	root->push(75);
+	root->push(125);
+	root->push(175);
+	root->push(110);
+
+	return root;
 }
 
 void preorderTraverse(Node * head) {
@@ -62,7 +64,7 @@ void preorderTraverseWithStack(Node * root) {
 	bt_stack->push(root);
 
 	while(bt_stack->checkEmpty()) {
-		
+
 		Node * temp = bt_stack->pop();
 		cout << temp->getValue() << endl;
 

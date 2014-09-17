@@ -10,8 +10,12 @@ class Node {
 		Node * getNext();
 		int getValue();
 
-		// Set next value for stack implementation
+		void push(int);
+
+		// Setters to store new data
 		void setNext(Node *);
+		void setLeft(Node *);
+		void setRight(Node *);
 
 	private:
 		Node * left;
