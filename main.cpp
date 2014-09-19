@@ -139,9 +139,14 @@ Node * findCommonAncestor(int x, int y, Node * root) {
 	Node * temp_x = root;
 	Node * temp_y = root;
 
+	cout << "Find Common Head For Nodes: " << x << ", and " << y << endl;
+
 	while(root) {
 
 		int curVal = root->getValue();
+
+		if(temp_x->getValue() == x && temp_y->getValue() == y)
+			return root;
 
 		if(x < curVal)
 			temp_x = root->getLeft();
@@ -153,8 +158,9 @@ Node * findCommonAncestor(int x, int y, Node * root) {
 		else if(y > curVal)
 			temp_y = root->getRight();
 
-		if(temp_x == temp_y)
+		if(temp_x == temp_y) {
 			root = temp_x;
+		}
 		else
 			return root;
 
