@@ -24,7 +24,7 @@ void postorderTraverse(Node *);
 // Preorder Traversal of Binary Tree w/o recursion
 void preorderTraverseWithStack(Node *);
 
-Node * findCommonAncestor(int, int, root);
+Node * findCommonAncestor(int, int, Node*);
 
 int main() {
 
