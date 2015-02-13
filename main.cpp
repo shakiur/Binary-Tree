@@ -40,6 +40,10 @@ int main() {
 	
 	Node * bt_head2 = buildBinaryTreeAncestor();
 
+	Node * common_head = findCommonAncestor(8, 8, bt_head2);
+
+	cout << "\nCommon Head: " << common_head->getValue() << endl;
+
 
 }
 
@@ -135,6 +139,33 @@ Node * findCommonAncestor(int x, int y, Node * root) {
 	Node * temp_x = root;
 	Node * temp_y = root;
 
-	int curVal = root->getValue();
+	cout << "Find Common Head For Nodes: " << x << ", and " << y << endl;
+
+	while(root) {
+
+		int curVal = root->getValue();
+
+		if(temp_x->getValue() == x && temp_y->getValue() == y)
+			return root;
+
+		if(x < curVal)
+			temp_x = root->getLeft();
+		else if(x > curVal)
+			temp_x = root->getRight();
+		
+		if(y < curVal)
+			temp_y = root->getLeft();
+		else if(y > curVal)
+			temp_y = root->getRight();
+
+		if(temp_x == temp_y) {
+			root = temp_x;
+		}
+		else
+			return root;
+
+	}
+
+	return NULL;
 
 }
