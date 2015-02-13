@@ -1,8 +1,8 @@
 #include <iostream>
 #include "headers/Node.h"
 
-Node::Node(Node * left, Node * right, int value) : 
-	left(left), right(right), value(value) {}
+Node::Node(int value) : 
+	left(NULL), right(NULL), value(value) {}
 
 Node * Node::getLeft() { return left; }
 
@@ -20,24 +20,28 @@ void Node::setRight(Node * n) { right = n; }
 
 void Node::push(int newVal) {
 
-	Node * new_entry = new Node(NULL, NULL, newVal);
+	Node * new_entry = new Node(newVal);
+	Node* temp = this;
 
-	if(newVal < value) {
-		if(left)
-			left->push(newVal);
-		else 
-			left = new_entry;
+	while(temp){
+		if(newVal < temp->getValue()){
+			if(temp->getLeft())
+				temp = temp->getLeft();
+			else
+				temp->setLeft(new_entry);
+		}
+		else if(newVal > temp->getValue()){
+			if(temp->getRight())
+				temp = temp->getRight();
+			else
+				temp->setRight(new_entry);
+		}
+		else{
+			// newVal == temp->getValue()
+			return;
+		}
 	}
 
-	else if(newVal > value) {
-		if(right)
-			right->push(newVal);
-		else
-			right = new_entry;
-	}
-
-	else
-		return;
 
 }
 
